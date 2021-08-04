@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter,Input, OnInit } from '@angular/core';
-
+import { Question, Option  } from 'src/app/static.properties';
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
@@ -46,16 +46,4 @@ export class QuestionComponent implements OnInit {
     this.nextQuestionEmitter.emit(this.isCorrect);
   }
 
-}
-
-class Option {
-  c: boolean;
-  text: string;
-  selected: boolean;
-}
-
-class Question {
-  text: string;
-  incorrectAnswers: string[];
-  correctAnswer: string;
 }
