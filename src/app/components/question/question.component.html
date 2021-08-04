@@ -1,0 +1,17 @@
+<h3>{{question.text}}</h3>
+<ion-list class="questions-list">
+  <ion-radio-group>
+    <ion-item *ngFor="let q of questions" (click)="answer(q)" disabled="{{answered}}">
+      <ion-label [ngClass]="{'incorrect' : answered && q.selected && !q.c,'correct' : answered && q.c}" >
+        {{q.text}}
+      </ion-label>
+      <ion-radio slot="start"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+
+  <ion-item>
+    <ion-text>{{answeredText}}</ion-text>
+  </ion-item>
+  
+  <ion-button *ngIf="answered" (click)="nextQuestion()">Next</ion-button>
+</ion-list>

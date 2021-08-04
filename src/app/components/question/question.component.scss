@@ -1,0 +1,17 @@
+.questions-list{
+  max-width:400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.incorrect{
+  border-style: solid;
+  border-color: red;
+  text-decoration: line-through;
+}
+
+.correct{
+  border-style: solid;
+  border-color: green;
+}

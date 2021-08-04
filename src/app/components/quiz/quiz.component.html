@@ -1,0 +1,31 @@
+<h2>{{quizData.length > 0? quizData[activeQuizIndex].title: 'Quiz Loading...'}}</h2>
+<ng-container *ngIf="quizData.length > 0">
+  <ng-container *ngFor="let quiz of quizData;let quizIndex = index">
+    <ng-container *ngIf="quizIndex === activeQuizIndex">
+      <app-question 
+        [hidden]="i !== activeQuestionIndex"
+        *ngFor="let q of quiz.questions;let i = index" 
+        (nextQuestionEmitter)='nextQuestion($event)' 
+        [question]="q"></app-question>
+    </ng-container>
+  </ng-container>
+  <ion-item [hidden]="!quizFinished" >
+    <ion-grid class="horizontal-center">
+      <ion-col>
+        <ion-row>
+          <ion-text [innerHtml]="quizFinishedMsg"></ion-text>
+        </ion-row>
+        <ion-row>
+          <ion-button (click)="startNextQuiz()">
+            Next Quiz
+          </ion-button>
+          <ion-button (click)="restartQuiz()">
+            Restart Quiz
+          </ion-button>
+        </ion-row>
+        
+      </ion-col>
+    </ion-grid>
+  </ion-item>
+</ng-container>
+
